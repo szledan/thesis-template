@@ -1,0 +1,58 @@
+% LaTeX fájl az első kötéstábala látványterve
+% SZTE Informatikai Tanszekcsoportja által megkövetelt
+% formai követelményeinek megvalósításához
+% A fájl használatához szükséges a magyar.ldf 1.5-ös vagy későbbi verziója
+% ez letölthető a http://www.math.bme.hu/latex/ weblapról, a magyar nyelvű szedéshez
+% további hasznos információk és programok is vannak ott.
+%
+
+\documentclass[12pt]{report}
+
+%Az ékezetes betűk használatához:
+\usepackage{t1enc}
+\usepackage[utf8]{inputenc}
+% A megkövetelt Times betűtípus:
+\usepackage{times}
+
+%Magyar nyelvi támogatás (Babel 3.7 vagy későbbi kell!)
+\usepackage[magyar]{babel}
+
+%Margók:
+\hoffset -1in \voffset -1in \oddsidemargin 30mm \textwidth 150mm
+\topmargin 15mm \headheight 10mm \headsep 5mm \textheight 237mm
+
+
+
+
+\begin{document}
+
+
+%A címoldalra se fej- se lábléc nem kell:
+\thispagestyle{empty}
+Első kötéstábla:
+
+\begin{center}
+{\Large\bf Szegedi Tudományegyetem}
+
+\vspace{0.5cm}
+
+{\Large\bf Informatikai Intézet}
+
+\vspace*{8.5cm}
+
+
+{\Huge\bf SZAKDOLGOZAT}
+%avagy {\Huge\bf DIPLOMAMUNKA}
+
+
+\vspace*{7cm}
+
+{\LARGE\bf Hallgató Claudia}
+
+\vspace*{0.6cm}
+
+{\Large\bf 2006}
+
+\end{center}
+
+\end{document}
