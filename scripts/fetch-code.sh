@@ -1,22 +1,22 @@
 #!/bin/bash
 
-# Get repository.
-if [[ "${1}" == "--help" || "${1}" == "-h" ]] ; then
-  echo "usage fetch-code.sh [<git-repository> [<tag>]]"
+# Include argument parser.
+. ./scripts/arg-parser.sh
+
+# Set default values.
+repository="git@github.com:szledan/gepard.git"
+gitTag=master
+helpMsg="usage "`basename $0`" --repo=<git-repository> --tag=<tag>"
+
+# Show help.
+if [[ $(getFlag "--help -h --usage" $@) ]] ; then
+  echo $helpMsg
   exit 0
 fi
 
-# Get git tag name.
-gitTag=master
-if [ "${2}" != "" ] ; then
-  gitTag=${2}
-fi
-
-# Get repository.
-repository="git@github.com:szledan/gepard.git"
-if [ "${1}" != "" ] ; then
-  repository=${1}
-fi
+# Parse flags.
+repository=$(getValue $(getFlag "--repo" $@) $repository)
+gitTag=$(getValue $(getFlag "--tag" $@) $gitTag)
 
 # Define variables.
 codeName=`basename $repository .git`
@@ -42,7 +42,7 @@ if [ "$errorCode" == "0" ] ; then
 fi
 
 if [ "$errorCode" == "0" ]; then
-  echo Done!
+  echo "Done!"
 else
   echo "Error! (Code: $errorCode.)"
 fi
