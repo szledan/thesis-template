@@ -23,7 +23,7 @@ You need to set the following points:
 #### 3. Step: Install dependencies
 
 ```bash
-./scripts/install-deps.sh
+./scripts/install-deps.sh # --dev
 ```
 
 #### 4. Step: Build code and paper
@@ -31,8 +31,7 @@ You need to set the following points:
 Build `pdf` and `code`.
 ```bash
 cmake -H. -Bbuild
-cd build
-make
+make -C build
 ```
 
 ### For contibutors
