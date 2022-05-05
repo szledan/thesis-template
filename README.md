@@ -9,30 +9,25 @@ and/or cloning the repository, continue with the following.
 #### 1. Step: Set up the repository.
 
 You need to set the following points:
- - The `CODE_NAME` in `./CMakeLists.txt:7`.
- - The `repository` in `./scripts/fetch-code.sh:16`.
- - The `gitTag` in `./scripts/fetch-code.sh:10`.
+ - Rename `project(<project-name>)`_ in `./CMakeLists.txt:2`. (Optional)
  - Extend the`./scripts/install-deps.sh` your specific dependencies.
 
-#### 2. Step: Fetch your code
-
-```bash
-./scripts/fetch-code.sh
-```
-
-#### 3. Step: Install dependencies
+#### 2. Step: Install dependencies
 
 ```bash
 ./scripts/install-deps.sh # --dev
 ```
 
-#### 4. Step: Build code and paper
+#### 3. Step: Build code and paper
 
-Build `pdf` and `code`.
+Build `pdf`.
+
 ```bash
 cmake -H. -Bbuild
 make -C build
 ```
+
+Find the output `pdf`: `./build/paper/src/szakdolgozat.pdf`.
 
 ### For contibutors
 
