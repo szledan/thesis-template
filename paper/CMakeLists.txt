@@ -3,6 +3,7 @@ list(APPEND THESIS_DEPENDENCIES "")
 set(SRC_ROOT_DIR ${PROJECT_SOURCE_DIR}/paper/src)
 set(BUILT_IMG_DIR ${SRC_ROOT_DIR}/eps)
 set(SVG_DIR ${SRC_ROOT_DIR}/svg)
+set(IMG_DIR ${SRC_ROOT_DIR}/img)
 file(MAKE_DIRECTORY ${BUILT_IMG_DIR})
 
 # Convert SVG files to EPS ones
@@ -19,6 +20,22 @@ foreach(file ${SVG_FILES})
     )
     add_custom_target(${SVG_FILENAME}_eps ALL DEPENDS ${EPS_FILE})
     list(APPEND THESIS_DEPENDENCIES ${SVG_FILENAME}_eps)
+endforeach()
+
+# Convert image files to EPS ones
+file(GLOB IMG_FILES "${IMG_DIR}/*")
+foreach(file ${IMG_FILES})
+    get_filename_component(IMG_FILENAME ${file} NAME_WE)
+    set(EPS_FILE ${BUILT_IMG_DIR}/${IMG_FILENAME}.eps)
+    message(STATUS "SVG file: " ${IMG_FILENAME})
+    message(STATUS "EPS file: " ${EPS_FILE})
+    add_custom_command(
+        OUTPUT ${EPS_FILE}
+        COMMAND inkscape ARGS --without-gui --convert-dpi-method=none -export-area-page --export-margin=0mm ${file} --export-eps=${EPS_FILE}
+        DEPENDS ${file}
+    )
+    add_custom_target(${IMG_FILENAME}_eps ALL DEPENDS ${EPS_FILE})
+    list(APPEND THESIS_DEPENDENCIES ${IMG_FILENAME}_eps)
 endforeach()
 
 add_subdirectory(src)

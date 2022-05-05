@@ -5,7 +5,7 @@ include(UseLATEX)
 add_latex_document (
     szakdolgozat.tex
     INPUTS kotestabla.tex bib/cites.bib
-    IMAGE_DIRS eps img
+    IMAGE_DIRS eps
     BIBFILES bib/cites.bib bib/huplain.bst
     DEPENDS ${THESIS_DEPENDENCIES}
 )

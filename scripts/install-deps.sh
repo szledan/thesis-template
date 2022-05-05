@@ -7,7 +7,7 @@ for _arg in "$@"; do
     "--build")
       _apps="${_apps} inkscape";;
     "--dev")
-      _apps="${_apps} okular geany-plugin-spellcheck hunspell-hu";;
+      _apps="${_apps} okular geany geany-plugin-spellcheck hunspell-hu";;
     *)
         echo "Usage: ${0} [OPTION]"
         echo ""
@@ -19,7 +19,7 @@ for _arg in "$@"; do
   esac
 done
 
-sudo apt-get install $_apps
+sudo apt-get install ${_apps}
 
 if [[ ${?} != 0 ]] ; then
   echo "Something went wrong!!!"
