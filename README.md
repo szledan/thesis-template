@@ -9,7 +9,7 @@ and/or cloning the repository, continue with the following.
 #### 1. Step: Set up the repository.
 
 You need to set the following points:
- - Rename `project(<project-name>)`_ in `./CMakeLists.txt:2`. (Optional)
+ - Rename `project(<project-name>)` in `./CMakeLists.txt:2`. (Optional)
  - Extend the`./scripts/install-deps.sh` your specific dependencies.
 
 #### 2. Step: Install dependencies
